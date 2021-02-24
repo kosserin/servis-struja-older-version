@@ -219,19 +219,19 @@ padding-top: 10%;
     box-shadow: 10px 10px 300px black;
     padding: 20px;
     transform: translateX(-15px);
+    @include mini{
+        transform: translateY(-70px);
+    }
     @include tablet{
         transform: translateY(70px);
         padding: 10px;
     }
     @include phone{
-        transform: translate(-40px,10px);
+        transform: translate(-40px,-30px);
         padding: 10px;
     }
     @include fold{
         transform: translateX(-20px);
-    }
-    @include edge{
-        display: none;
     }
     & h1{
         font-size: 5rem;
