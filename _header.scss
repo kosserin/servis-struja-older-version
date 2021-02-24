@@ -234,7 +234,10 @@ padding-top: 10%;
         transform: translateX(-20px);
     }
     @include fold{
-        transform: translateY(-30px);
+        transform: translateY(0px);
+    }
+    @include smallest{
+        transform: translateY(-50px);
     }
     & h1{
         font-size: 5rem;

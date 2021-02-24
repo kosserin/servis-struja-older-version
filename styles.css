@@ -390,8 +390,15 @@ nav {
 
 @media screen and (max-width: 320px) {
   .experience {
-    -webkit-transform: translateY(-30px);
-            transform: translateY(-30px);
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+@media screen and (max-width: 315px) {
+  .experience {
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
   }
 }
 
