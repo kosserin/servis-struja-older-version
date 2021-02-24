@@ -388,6 +388,13 @@ nav {
   }
 }
 
+@media screen and (max-width: 320px) {
+  .experience {
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+  }
+}
+
 .experience h1 {
   font-size: 5rem;
   color: #060448;
