@@ -1,0 +1,198 @@
+@import 'colors';
+@import 'media-queries';
+
+#first{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+}
+.icon{
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon img{
+    width: 50px;
+}
+.icon h1{
+    color: $blue;
+    font-size: 1rem;
+    font-weight: 500;
+}
+.icon p{
+    color: $blue;
+    font-size: 0.8rem;
+}
+
+/* aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 222222222222222222222222 */
+
+#second{
+    background-color: $blue;
+    color: $white;
+}
+.second-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px,1fr));
+    width: 100%;
+    @include phone{
+        grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    }
+}
+.services-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    margin: auto;
+    min-height: 400px;
+    height: fit-content;
+    & h1{
+        font-size: 2.5rem;
+        line-height: 40px;
+        margin-bottom: 10px;
+        @include phone{
+            font-size: 1.8rem;
+            line-height: 30px;
+        }
+    }
+    & p{
+        @include tablet{
+            padding-bottom: 30px;
+        }
+    }
+}
+.carousel{
+    background-color: gray;
+    height: 500px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.carousel-track-container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.carousel-track{
+    top: 0px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    transition: transform .250s ease;
+}
+.carousel-track li{
+    position: absolute;
+    list-style: none;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    & a{
+        z-index: 1000;
+        display: inline-block;
+        text-decoration: none;
+        background-color: $blue;
+        color: $white;
+        padding: 1rem 2rem;
+        border-radius: 30px;
+        transform: translate(50px,350px);
+        transition: background-color .3s ease;
+        transition: color .3s ease;
+        @include phone{
+            transform: translate(30px, 350px);
+        }
+        @include fold{
+            font-size: 0.9rem;
+            transform: translate(20px, 350px);
+            padding: 0.8rem 0.8rem;
+        }
+        &:hover{
+            background-color: $yellow;
+            color: $blue;
+        }
+    }
+}
+#second .carousel li:nth-child(1){
+    background-image: url('./slide1.jpg');
+}
+#second .carousel li:nth-child(2){
+    background-image: url('./slide2.jpg');
+}
+#second .carousel li:nth-child(3){
+    background-image: url('./slide3.jpg');
+}
+#second .carousel li:nth-child(4){
+    background-image: url('./slide4.jpg');
+}
+#second .carousel li:nth-child(5){
+    background-image: url('./slide5.jpg');
+}
+.carousel-indicator{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: gray;
+    z-index: 1000;
+    cursor: pointer;
+    top: 425px;
+    border: none;
+    border-radius: 100%;
+    outline: none;
+}
+.carousel-indicator:nth-child(1){
+    margin: 40px -150px;
+    @include tablet{
+        margin: 40px -250px;
+    }
+}
+.carousel-indicator:nth-child(2){
+    margin: 40px -125px;
+    @include tablet{
+        margin: 40px -225px;
+    }
+}
+.carousel-indicator:nth-child(3){
+    margin: 40px -100px;
+    @include tablet{
+        margin: 40px -200px;
+    }
+}
+.carousel-indicator:nth-child(4){
+    margin: 40px -75px;
+    @include tablet{
+        margin: 40px -175px;
+    }
+}
+.carousel-indicator:nth-child(5){
+    margin: 40px -50px;
+    @include tablet{
+        margin: 40px -150px;
+    }
+}
+.current-slide{
+    background-color: $blue;
+}
+.is-hidden{
+    display: none;
+}
+.services-container ul{
+    margin-top: 20px;
+    margin-left: 20px;
+   & li{
+        color: $yellow;
+        font-size: 1.2rem;
+        & span a{
+            color: $white;
+            text-decoration: none;
+        }
+}
+}
