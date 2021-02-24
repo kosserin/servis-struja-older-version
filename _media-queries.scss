@@ -24,3 +24,8 @@
         @content
     }
 }
+@mixin edge{
+    @media screen and (max-height:519px){
+        @content
+    }
+}

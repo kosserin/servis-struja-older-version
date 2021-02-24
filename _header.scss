@@ -230,6 +230,9 @@ padding-top: 10%;
     @include fold{
         transform: translateX(-20px);
     }
+    @include edge{
+        transform: translateY(-50px);
+    }
     & h1{
         font-size: 5rem;
         color: $blue;
