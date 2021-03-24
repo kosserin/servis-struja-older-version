@@ -4,11 +4,10 @@
 .background{
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(to left,rgba($blue,1),rgba($blue,0.7),rgba($blue,0.8),rgba($blue,0.9),rgba($blue,0.98),rgba($blue,1)), url('./pexels-kelly-lacy-2898199.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
+    background: linear-gradient(to left,rgba($blue,1),rgba($blue,0.7),rgba($blue,0.8),rgba($blue,0.9),rgba($blue,0.98),rgba($blue,1)), url('./pozadina.jpg');
+    @include tablet{
+        background: linear-gradient(to left,rgba($blue,.7),rgba($blue,1)), url('./pozadina.jpg');
+    }
 }
 nav{
     display: flex;
@@ -19,7 +18,7 @@ nav{
     align-items: center;
     position: relative;
     @include tablet{
-        justify-content: space-evenly;
+        justify-content: space-around;
     }
 }
 .nav-logo img{
@@ -61,14 +60,42 @@ nav{
             text-transform: uppercase;
             font-size: 0.8rem;
             color: $white;
+            position: relative;
+            text-align: center;
             @include tablet{
                 font-size: 1.2rem;
             }
+        }
+        &::before{
+            position: absolute;
+            content: '';
+            top: 40px;
+            background-color: $white;
+            height: 2px;
+            width: 60px;
+            transform: scale(0,1);
+            transition: 500ms transform;
+            @include tablet{
+                display: none;
+            }
+        }
+        &:hover::before{
+            transform: scale(1,1);
         }
     }
 }
 .first-logo{
     display: none;
+    & img{
+        @include tablet{
+            width: 100px;
+            transform: translateY(5px);
+        }
+        @include phone{
+            width: 100px;
+            transform: translateY(5px);
+        }
+    }
     @include tablet{
         display: flex;
     }
@@ -198,72 +225,42 @@ padding-top: 10%;
             color: $white;
             background-color: transparent;
             border-radius: 30px;
-            border: 2px solid $white;
+            border: 1px solid $white;
             transition: all .3s ease;
             &:hover{
                 color: $blue;
                 background-color: $yellow;
+                border: none;
             }
         }
     }
 }
 .experience-container{
-    transform: translateY(50px);
-    width: 90vw;
     display: flex;
-    justify-content: flex-end;
-}
-.experience{
-    display: flex;
-    background: linear-gradient(rgba($white,1),rgba($white,.9));
-    box-shadow: 10px 10px 300px black;
+    background: linear-gradient(to left top, rgba(white,.4),rgba($blue,.4));
     padding: 20px;
-    transform: translateX(-15px);
-    @include mini{
-        transform: translateY(-70px);
-    }
-    @include tablet{
-        transform: translateY(70px);
-        padding: 10px;
-    }
-    @include phone{
-        transform: translate(-40px,-30px);
-        padding: 10px;
-    }
-    @include fold{
-        transform: translateX(-20px);
-    }
-    @include fold{
-        transform: translateY(0px);
-    }
-    @include smallest{
-        transform: translateY(-50px);
-    }
+    width: 230px;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
     & h1{
-        font-size: 5rem;
-        color: $blue;
+        width: 110px;
+        color: $yellow;
         @include tablet{
-            font-size: 2.8rem;
+            font-size: 3.5rem;
+            transform: translateY(5px);
         }
-        @include phone{
-            font-size: 3rem;
-        }
+    }
+    & .experience{
+        display: flex;
     }
     & p{
+        transform: translateY(10px);
         color: $blue;
-        transform: translate(45px,10px);
-        @include mini{
-                transform: translate(20px,0px);
-        }
+        text-transform: uppercase;
+        font-weight: bold;
         @include tablet{
-            transform: translate(0px,0px);
-        }
-        @include phone{
-            transform: translate(0px,0px);
-        }
-        @include fold{
-            transform: translate(0px,0px);
-            font-size: 0.9rem;
+            transform: translateY(0px);
         }
     }
 }
@@ -309,9 +306,9 @@ padding-top: 10%;
     }
     & .image-container{
         height: 400px;
-        background-image: url('./workers.jpg');
+        background: url('/mi.jpg');
         background-size: cover;
-        background-position: center;
+        background-position: 40% 80%;
         background-repeat: no-repeat;
         @include phone{
             height: 350px;
@@ -344,13 +341,17 @@ padding-top: 10%;
                 justify-content: flex-end;
                 & a{
                     color: $blue;
+                    text-decoration: none;
+                    @include tablet{
+                        font-size: .9rem;
+                    }
                     & img{
                         color: $blue;
-                        transform: translate(0,5px);
+                        transform: translate(0,8px);
                         transition: transform .3s ease;
                     }
                     &:hover img{
-                        transform: translate(15px,5px);
+                        transform: translate(15px,8px);
                     }
                 }
             }

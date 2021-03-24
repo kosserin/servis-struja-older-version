@@ -24,8 +24,3 @@
         @content
     }
 }
-@mixin smallest{
-    @media screen and (max-width:315px){
-        @content
-    }
-}

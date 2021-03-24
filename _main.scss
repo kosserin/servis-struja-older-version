@@ -2,12 +2,20 @@
 @import 'media-queries';
 
 #first{
+    padding: 20px 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
     width: 70%;
     margin: auto;
     text-align: center;
     align-items: center;
+    @include fold{
+        grid-template-columns: repeat(auto-fit, minmax(110px,1fr));
+        width: 90%;
+    }
+}
+body{
+    background-color: $white;
 }
 .icon{
     min-height: 150px;
@@ -15,19 +23,31 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @include tablet{
+        min-height: 100px;
+    }
 }
 
 .icon img{
     width: 50px;
+    @include tablet{
+        width: 40px;
+    }
 }
 .icon h1{
     color: $blue;
     font-size: 1rem;
     font-weight: 500;
+    @include tablet{
+        font-size: 0.8rem;
+    }
 }
 .icon p{
     color: $blue;
     font-size: 0.8rem;
+    @include tablet{
+        font-size: 0.7rem;
+    }
 }
 
 /* aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 222222222222222222222222 */
@@ -35,11 +55,14 @@
 #second{
     background-color: $blue;
     color: $white;
+    position: relative;
+    padding: 50px 0;
 }
 .second-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px,1fr));
-    width: 100%;
+    margin: auto;
+    grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
+    width: 90vw;
     @include phone{
         grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
     }
@@ -52,6 +75,12 @@
     margin: auto;
     min-height: 400px;
     height: fit-content;
+    @include tablet{
+        height: 250px;
+        width: 100%;
+        padding-bottom: 250px;
+        padding-top: 200px;
+    }
     & h1{
         font-size: 2.5rem;
         line-height: 40px;
@@ -67,132 +96,169 @@
         }
     }
 }
-.carousel{
-    background-color: gray;
-    height: 500px;
+.slider{
     position: relative;
-    display: flex;
-    justify-content: center;
-}
-.carousel-track-container{
-    position: relative;
-    width: 100%;
-    height: 100%;
     overflow: hidden;
-}
-.carousel-track{
-    top: 0px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    transition: transform .250s ease;
-}
-.carousel-track li{
-    position: absolute;
-    list-style: none;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    height: 500px;
     width: 100%;
+    @include phone{
+        height: 300px;
+    }
+}
+.slider .slide{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 4s ease-in-out;
+}
+.slide.current{
+    opacity: 1;
+    display: block;
+    transition: all 500ms;
+}
+.slide:first-child{
+    background: url('./services/1.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.slide:nth-child(2){
+    background: url('./services/23.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.slide:nth-child(3){
+    background: url('./services/21.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.slide:nth-child(4){
+    background: url('./services/28.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.slide:nth-child(5){
+    background: url('./services/6.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.slide .content{
+    position: absolute;
+    bottom: 50px;
+    opacity: 0;
+    min-width: 600px;
+    @include tablet{
+        bottom: 10px;
+    }
+}
+.slide.current .content{
+    opacity: 1;
+    left: 50px;
+    @include tablet{
+        left: 10px;
+    }
     & a{
-        z-index: 1000;
         display: inline-block;
         text-decoration: none;
-        background-color: $blue;
         color: $white;
-        padding: 1rem 2rem;
-        border-radius: 30px;
-        transform: translate(50px,350px);
-        transition: background-color .3s ease;
-        transition: color .3s ease;
-        @include phone{
-            transform: translate(30px, 350px);
-        }
-        @include fold{
-            font-size: 0.9rem;
-            transform: translate(20px, 350px);
-            padding: 0.8rem 0.8rem;
-        }
+        padding: 1.3rem 3rem;
+        background-color: $blue;
+        border-radius: 40px;
         &:hover{
             background-color: $yellow;
             color: $blue;
         }
+        @include tablet{
+            font-size: 0.9rem;
+            padding: 1.3rem 1.3rem;
+        }
+        @include fold{
+            font-size: 0.8rem;
+        }
     }
 }
-#second .carousel li:nth-child(1){
-    background-image: url('./slide1.jpg');
-}
-#second .carousel li:nth-child(2){
-    background-image: url('./slide2.jpg');
-}
-#second .carousel li:nth-child(3){
-    background-image: url('./slide3.jpg');
-}
-#second .carousel li:nth-child(4){
-    background-image: url('./slide4.jpg');
-}
-#second .carousel li:nth-child(5){
-    background-image: url('./slide5.jpg');
-}
-.carousel-indicator{
+button#next{
     position: absolute;
-    width: 15px;
-    height: 15px;
-    background-color: gray;
-    z-index: 1000;
+    top: 45%;
+    right: 15px;
+    @include phone{
+        top: 30%;
+    }
+}
+button#prev{
+    position: absolute;
+    top: 45%;
+    left: 15px;
+    @include phone{
+        top: 30%;
+    }
+}
+.slider-container{
+position: relative;
+}
+button#next,button#prev{
+    border: 2px solid $white;
+    background: transparent;
+    color: $white;
+    padding: 1rem 1.2rem;
     cursor: pointer;
-    top: 425px;
-    border: none;
-    border-radius: 100%;
+    font-size: 1.2rem;
     outline: none;
-}
-.carousel-indicator:nth-child(1){
-    margin: 40px -150px;
+    &:hover{
+        background: $white;
+        transition: background 300ms ease-in-out;
+        color: $blue;
+    }
     @include tablet{
-        margin: 40px -250px;
+        font-size: 1rem;
     }
 }
-.carousel-indicator:nth-child(2){
-    margin: 40px -125px;
-    @include tablet{
-        margin: 40px -225px;
-    }
-}
-.carousel-indicator:nth-child(3){
-    margin: 40px -100px;
-    @include tablet{
-        margin: 40px -200px;
-    }
-}
-.carousel-indicator:nth-child(4){
-    margin: 40px -75px;
-    @include tablet{
-        margin: 40px -175px;
-    }
-}
-.carousel-indicator:nth-child(5){
-    margin: 40px -50px;
-    @include tablet{
-        margin: 40px -150px;
-    }
-}
-.current-slide{
-    background-color: $blue;
-}
-.is-hidden{
-    display: none;
-}
+
+
+
+
+
 .services-container ul{
     margin-top: 20px;
     margin-left: 20px;
    & li{
         color: $yellow;
         font-size: 1.2rem;
+        @include tablet{
+            font-size: 1rem;
+            padding-bottom: 10px;
+        }
+        @include phone{
+            font-size: .9rem;
+            padding-bottom: 15px;
+            width: 90%;
+            font-weight: 300;
+        }
         & span a{
             color: $white;
             text-decoration: none;
         }
 }
+}
+.services-button{
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 50px;
+    padding: 1.3rem 4rem;
+    width: fit-content;
+    background-color: $white;
+    border-radius: 50px;
+    color: $blue;
+    text-transform: uppercase;
+    transition: background 300ms;
+    &:hover{
+        background-color: $yellow;
+    }
 }

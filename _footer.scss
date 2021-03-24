@@ -20,9 +20,10 @@ footer{
         padding: 20px 0;
         & a{
             text-decoration: none;
-            color: rgba($white,0.8);
+            color: rgba($white,1);
             &:hover{
                 color: $white;
+                opacity: .8;
             }
         }
     }
