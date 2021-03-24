@@ -492,7 +492,7 @@ nav {
 
 .third-container .image-container {
   height: 400px;
-  background: url("/mi.jpg");
+  background: url("./mi.jpg");
   background-size: cover;
   background-position: 40% 80%;
   background-repeat: no-repeat;
@@ -1078,7 +1078,7 @@ footer {
 #about .image-container {
   height: 500px;
   width: 100vw;
-  background-image: url("/mi.jpg");
+  background: url("./mi.jpg");
   background-size: cover;
   background-position: 50% 60%;
   background-repeat: no-repeat;
