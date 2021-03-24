@@ -103,3 +103,28 @@ form{
         border: none;
     }
 }
+.custom-shape-divider-top-1616614975 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1616614975 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+.custom-shape-divider-top-1616614975 .shape-fill {
+    fill: $white;
+}
+#contact-form{
+    position: relative;
+    & h1{
+        padding-top: 200px;
+    }
+}

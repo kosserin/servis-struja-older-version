@@ -74,7 +74,7 @@ nav{
             height: 2px;
             width: 60px;
             transform: scale(0,1);
-            transition: 500ms transform;
+            transition: 500ms transform ease-in;
             @include tablet{
                 display: none;
             }
@@ -82,6 +82,18 @@ nav{
         &:hover::before{
             transform: scale(1,1);
         }
+    }
+}
+.active{
+    position: relative;
+    &::before{
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        background-color: $white;
+        top: 1.2rem;
+
     }
 }
 .first-logo{
@@ -243,6 +255,10 @@ padding-top: 10%;
     position: absolute;
     bottom: 5%;
     right: 5%;
+    @include fold{
+        bottom: 1%;
+        right: 15%;
+    }
     & h1{
         width: 110px;
         color: $yellow;

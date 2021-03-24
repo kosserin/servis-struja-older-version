@@ -262,3 +262,28 @@ button#next,button#prev{
         background-color: $yellow;
     }
 }
+/* important */
+.fade-in{
+    opacity: 0;
+    transition:  opacity  250ms ease-in;
+}
+/* important */
+.fade-in.appear{
+    opacity: 1;
+}
+/* important */
+.from-left{
+    transform: translateX(-50%);
+}
+/* important */
+.from-right{
+    transform: translateX(50%);
+}
+/* important */
+.from-left,.from-right{
+    transition: transform 400ms ease-in;
+}
+/* important */
+.from-left.appear,.from-right.appear{
+    transform: translateX(0);
+}
