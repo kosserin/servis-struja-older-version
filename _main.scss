@@ -531,6 +531,7 @@ button#next,button#prev{
         display: flex;
         justify-content: space-evenly;
         text-align: center;
+        align-items: center;
         @include mini{
             width: 90%;
             flex-direction: column;
@@ -538,10 +539,20 @@ button#next,button#prev{
         }
     }
     & img{
-        height: 80vh;
+        width: 30vw;
+        height: 100%;
+        @include mini{
+            width: 50vw;
+        }
+        @include tablet{
+            width: 40vw;
+        }
+        @include phone{
+            width: 80vw;
+        }
     }
     & h1{
-        font-size: 4rem;
+        font-size: 3rem;
         @include phone{
             font-size: 2.5rem;
         }
@@ -577,8 +588,8 @@ button#next,button#prev{
     }
     & .circle{
         position: absolute;
-        width: 140%;
-        height: 100%;
+        width: 450px;
+        height: 450px;
         background-color: rgba($color: $blue, $alpha: 1);
         border-radius: 50%;
         @include mini{

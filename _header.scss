@@ -5,8 +5,14 @@
     width: 100vw;
     height: 100vh;
     background: linear-gradient(to left,rgba($blue,1),rgba($blue,0.7),rgba($blue,0.8),rgba($blue,0.9),rgba($blue,0.98),rgba($blue,1)), url('./pozadina.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100% 10%;
     @include tablet{
-        background: linear-gradient(to left,rgba($blue,.7),rgba($blue,1)), url('./pozadina.jpg');
+        background: linear-gradient(to left,rgba($blue,1),rgba($blue,.6),rgba($blue,.9)), url('./pozadina.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 }
 nav{
@@ -137,10 +143,10 @@ padding-top: 10%;
         padding-top: 5%;
     }
     @include phone{
-        padding-top: 5%;
+        padding-top: 25%;
     }
     @include fold{
-        padding-top: 1rem;
+        padding-top: 35%;
     }
     & h2{
         font-size: 3rem;
@@ -155,9 +161,10 @@ padding-top: 10%;
         @include phone{
             text-align: center;
             width: 100%;
+            font-size: 1.6rem;
         }
         @include phone{
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             text-align: center;
         }
 
@@ -185,13 +192,13 @@ padding-top: 10%;
         @include phone{
             text-align: center;
             width: 100%;
-            font-size: 2.3rem;
+            font-size: 2rem;
             margin-bottom: 10px;
         }
         @include fold{
-            font-size: 2rem;
+            font-size: 1.5rem;
             width: 100%;
-            line-height: 40px;
+            line-height: 30px;
             text-align: center;
         }
     }
@@ -203,10 +210,12 @@ padding-top: 10%;
         }
         @include phone{
             text-align: center;
-            width: 100%;
+            width: 90%;
+            font-size: .8rem;
+            margin: 0 auto;
         }
         @include fold{
-            font-size: 1rem;
+            font-size: .8rem;
             width: 100%;
             text-align: center;
         }
@@ -215,14 +224,19 @@ padding-top: 10%;
         margin-top: 40px;
         @include phone{
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             text-align: center;
             margin-top: 10px;
+            margin: 0 auto;
+            width: 100%;
         }
         & a{
             text-decoration: none;
             transition: all .3s ease;
-            margin: 10px 0;
+            margin: 10px auto;
+            @include phone{
+                font-size: .8rem;
+            }
         }
         & a:nth-child(1){
             padding: 1rem 2rem;
@@ -230,6 +244,13 @@ padding-top: 10%;
             background-color: $white;
             border-radius: 30px;
             margin-right: 10px;
+            @include phone{
+                padding: 1rem 1.5rem;
+            }   
+            @include fold{
+                padding: 1rem 1rem;
+                margin-right: 0;
+            }
             &:hover{
                 color: $blue;
                 background-color: $yellow;
@@ -242,6 +263,12 @@ padding-top: 10%;
             border-radius: 30px;
             border: 1px solid $white;
             transition: all .3s ease;
+            @include phone{
+                padding: 1rem 2rem;
+            }
+            @include fold{
+                padding: 1rem 1.5rem;
+            }
             &:hover{
                 color: $blue;
                 background-color: $yellow;
@@ -252,7 +279,7 @@ padding-top: 10%;
 }
 .experience-container{
     display: flex;
-    background: linear-gradient(to left top, rgba(white,.4),rgba($blue,.4));
+    background: linear-gradient(to left top, rgba(white,1),rgba($blue,.1));
     padding: 20px;
     width: 230px;
     position: absolute;
