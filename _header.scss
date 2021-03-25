@@ -70,11 +70,11 @@ nav{
             position: absolute;
             content: '';
             top: 40px;
-            background-color: $white;
+            background-color: $yellow;
             height: 2px;
             width: 60px;
             transform: scale(0,1);
-            transition: 500ms transform ease-in;
+            transition: 300ms transform ease-in;
             @include tablet{
                 display: none;
             }
@@ -91,8 +91,11 @@ nav{
         position: absolute;
         width: 20px;
         height: 2px;
-        background-color: $white;
+        background-color: $yellow;
         top: 1.2rem;
+        @include tablet{
+            top: 1.5rem;
+        }
 
     }
 }
@@ -304,72 +307,4 @@ padding-top: 10%;
 }
 .toggle .line3{
     transform: rotate(-45deg) translate(5px,-6px);
-}
-#third{
-    background: $white;
-}
-.third-container{
-    padding: 100px 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
-    min-height: 400px;
-    height: fit-content;
-    width: 80%;
-    margin: auto;
-    @include phone{
-        grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-        width: 90%;
-    }
-    & .image-container{
-        height: 400px;
-        background: url('./mi.jpg');
-        background-size: cover;
-        background-position: 40% 80%;
-        background-repeat: no-repeat;
-        @include phone{
-            height: 350px;
-        }
-    }
-    & .text-container{
-            width: 80%;
-            margin: auto;
-            color: $blue;
-            @include phone{
-                width: 95%;
-            }
-            & h1{
-                font-size: 3rem;
-                @include phone{
-                    font-size: 2rem;
-                    margin-bottom: 10px;
-                }
-            }
-            & p{
-                @include phone{
-                    font-size: 0.8rem;
-                }
-            }
-            & p span{
-                font-weight: 500;
-            }
-            & .read-more-container{
-                display: flex;
-                justify-content: flex-end;
-                & a{
-                    color: $blue;
-                    text-decoration: none;
-                    @include tablet{
-                        font-size: .9rem;
-                    }
-                    & img{
-                        color: $blue;
-                        transform: translate(0,8px);
-                        transition: transform .3s ease;
-                    }
-                    &:hover img{
-                        transform: translate(15px,8px);
-                    }
-                }
-            }
-    }
 }

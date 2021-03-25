@@ -14,7 +14,6 @@ const nextSlide = () => {
   if (current.nextElementSibling) {
     // Add current to next sibling
     current.nextElementSibling.classList.add('current');
-    current.nextElementSibling.classList.add('animacija');
   } else {
     // Add current to start
     slides[0].classList.add('current');

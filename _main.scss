@@ -101,6 +101,7 @@ body{
     overflow: hidden;
     height: 500px;
     width: 100%;
+    border-radius: 50px;
     @include phone{
         height: 300px;
     }
@@ -167,12 +168,12 @@ body{
     & a{
         display: inline-block;
         text-decoration: none;
-        color: $white;
+        color: $blue;
         padding: 1.3rem 3rem;
-        background-color: $blue;
+        background-color: $yellow;
         border-radius: 40px;
         &:hover{
-            background-color: $yellow;
+            background-color: $white;
             color: $blue;
         }
         @include tablet{
@@ -221,22 +222,18 @@ button#next,button#prev{
     }
 }
 
-
-
-
-
 .services-container ul{
     margin-top: 20px;
     margin-left: 20px;
    & li{
         color: $yellow;
-        font-size: 1.2rem;
+        font-size: 1rem;
+        padding-bottom: 10px;
         @include tablet{
-            font-size: 1rem;
-            padding-bottom: 10px;
+            font-size: .9rem;
         }
         @include phone{
-            font-size: .9rem;
+            font-size: .8rem;
             padding-bottom: 15px;
             width: 90%;
             font-weight: 300;
@@ -244,22 +241,22 @@ button#next,button#prev{
         & span a{
             color: $white;
             text-decoration: none;
+            text-transform: uppercase;
         }
 }
 }
-.services-button{
-    display: inline-block;
-    text-decoration: none;
-    margin-top: 50px;
-    padding: 1.3rem 4rem;
-    width: fit-content;
-    background-color: $white;
-    border-radius: 50px;
-    color: $blue;
-    text-transform: uppercase;
-    transition: background 300ms;
-    &:hover{
+.services-container h1 span{
+    color: $yellow;
+}
+.services-container h1{
+    position: relative;
+    &::before{
+        position: absolute;
+        content: '';
+        width: 60px;
+        height: 5px;
         background-color: $yellow;
+        bottom: -10px;
     }
 }
 /* important */
@@ -279,11 +276,357 @@ button#next,button#prev{
 .from-right{
     transform: translateX(50%);
 }
+.from-down{
+    transform: translateY(30%);
+}
+.from-down.appear{
+    transform: translateY(0);
+}
 /* important */
-.from-left,.from-right{
+.from-left,.from-right,.from-down{
     transition: transform 400ms ease-in;
 }
 /* important */
 .from-left.appear,.from-right.appear{
     transform: translateX(0);
 }
+.scale{
+    transform: scale(0,1);
+    transition: transform 300ms ease-in;
+}
+.scale.appear{
+    transform: scale(1,1);
+}
+#third{
+    background: $white;
+}
+.third-container{
+    padding: 100px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+    min-height: 400px;
+    height: fit-content;
+    width: 80%;
+    margin: auto;
+    position: relative;
+    @include phone{
+        grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+        width: 90%;
+    }
+    & .image-container{
+        height: 400px;
+        background: url('./mi.jpg');
+        background-size: cover;
+        background-position: 40% 80%;
+        background-repeat: no-repeat;
+        border-radius: 50px;
+        @include phone{
+            height: 350px;
+        }
+    }
+    & .text-container{
+            width: 80%;
+            margin: auto;
+            color: $blue;
+            @include phone{
+                width: 95%;
+            }
+            & h1{
+                font-size: 3rem;
+                position: relative;
+                margin-bottom: 20px;
+                text-align: center;
+                &::before{
+                    position: absolute;
+                    content: '';
+                    width: 60px;
+                    height: 5px;
+                    background-color: $yellow;
+                    bottom: 0;
+                }
+                @include phone{
+                    font-size: 2rem;
+                    margin-bottom: 10px;
+                }
+            }
+            & p{
+                width: 70%;
+                margin: 0 auto;
+                text-align: center;
+                @include phone{
+                    font-size: 0.8rem;
+                }
+            }
+            & p span{
+                font-weight: 500;
+            }
+            .lower{
+                display: none;
+            }
+            & .read-more-container{
+                display: flex;
+                justify-content: flex-end;
+                & a{
+                    color: $blue;
+                    text-decoration: none;
+                    @include tablet{
+                        font-size: .9rem;
+                    }
+                    & img{
+                        color: $blue;
+                        transform: translate(0,8px);
+                        transition: transform .3s ease;
+                    }
+                    &:hover img{
+                        transform: translate(15px,8px);
+                    }
+                }
+            }
+    }
+}
+.third-container{
+    position: relative;
+}
+#fourth{
+    position: relative;
+    width: 100vw;
+    min-height: 500px;
+    padding-top: 200px;
+    text-align: center;
+    & h1{
+        font-size: 3rem;
+        color: $blue;
+        border-bottom: 5px solid $yellow;
+        width: 80%;
+        margin: 0 auto 40px auto;
+        @include tablet{
+            font-size: 2.3rem;
+        }
+        @include phone{
+            font-size: 2rem;
+        }
+        @include fold{
+            font-size: 1.5rem;
+        }
+    }
+    & p{
+        width: 40%;
+        margin: 0 auto;
+        line-height: 28px;
+        color: $blue;
+        font-size: 1rem;
+        margin-bottom: 10px;
+        @include mini{
+            width: 70%;
+        }
+        @include phone{
+            width: 80%;
+        }
+    }
+    & a{
+        display: inline-block;
+        margin: 20px 10px;
+        text-decoration: none;
+        text-transform: uppercase;
+        padding: 1rem 3rem;
+        background-color: $yellow;
+        border-radius: 40px;
+        color: $blue;
+        &:hover{
+            color: $white;
+            background: $blue;
+        }
+    }
+}
+
+
+
+
+
+.custom-shape-divider-top-1616667274 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1616667274 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+.custom-shape-divider-top-1616667274 .shape-fill {
+    fill: $blue;
+}
+
+
+#fifth{
+    margin: 100px 0;
+    background-color: $white;
+    text-align: center;
+    & h1{
+        font-size: 3rem;
+        color: $blue;
+        position: relative;
+        margin-bottom: 30px;
+        &::before{
+            position: absolute;
+            content: '';
+            bottom: 0px;
+            width: 60px;
+            height: 5px;
+            right: 48%;
+            background-color: $yellow;
+            @include mini{
+                right: 45%;
+            }
+            @include phone{
+                right: 44%;
+            }
+        }
+    }
+}
+.sponsors{
+    display: flex;
+    width: 60%;
+    margin: 50px auto;
+    @include tablet{
+        width: 80%;
+    }
+    & .sponsor{
+        width: 33%;
+        & img{
+            width: 100%;
+            opacity: .7;
+            &:hover{
+                opacity: 1;
+            }
+        }
+    }
+    & .sponsor:first-child{
+        transform: translateY(35%);
+    }
+    & .sponsor:first-child.appear{
+        transform: translateY(5%);
+    }
+    & .sponsor:nth-child(2){
+        transform: translateY(30%);
+    }
+    & .sponsor:nth-child(2).appear{
+        transform: translateY(-20%);
+    }
+}
+#sixth{
+    background-color: $white;
+    & .info-holder{
+        width: 95%;
+        margin: 100px auto;
+        display: flex;
+        justify-content: space-evenly;
+        text-align: center;
+        @include mini{
+            width: 90%;
+            min-width: fit-content;
+            flex-direction: column;
+        }
+    }
+    & img{
+        height: 80vh;
+    }
+    & h1{
+        font-size: 4rem;
+        @include phone{
+            font-size: 2.5rem;
+        }
+    }
+    & .info{
+        position: relative;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: $white;
+        @include mini{
+            transform: translateY(100px);
+            padding: 100px 0 150px 0;
+        }
+        & i{
+            margin-right: 5px;
+            font-size: 1.3rem;
+        }
+        & h1,& p{
+            z-index: 100;
+        }
+        & p{
+            @include phone{
+                font-size: 0.8rem;
+            }
+        }
+        & a{
+            text-decoration: none;
+            color: $yellow;
+        }
+    }
+    & .circle{
+        position: absolute;
+        width: 140%;
+        height: 100%;
+        background-color: rgba($color: $blue, $alpha: 1);
+        border-radius: 50%;
+        @include mini{
+            width: 450px;
+            height: 450px;
+            
+        }
+    }
+}
+#seventh{
+    width: 100vw;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 50px;
+    & h1{
+        font-size: 3rem;
+        color: $blue;
+        position: relative;
+        margin-bottom: 30px;
+        text-align: center;
+        &::before{
+            position: absolute;
+            content: '';
+            bottom: 0px;
+            width: 60px;
+            height: 5px;
+            right: 48%;
+            background-color: $yellow;
+            @include mini{
+                right: 45%;
+            }
+            @include phone{
+                right: 44%;
+            }
+        }
+    }
+    & a{
+        display: inline-block;
+        font-size: 5rem;
+        padding: 1rem 3rem;
+        border-radius: 50%;
+        text-align: center;
+        background: $blue;
+        color: $white;
+        &:hover{
+            background-color: $yellow;
+            color: $blue;
+            transition: 500ms;
+        }
+    }
+}
+

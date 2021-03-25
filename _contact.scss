@@ -79,7 +79,6 @@ form{
     flex-direction: column;
     text-align: center;
     align-items: center;
-    border-bottom: 5px solid $yellow;
     padding-bottom: 30px;
     & label{
         padding-bottom: 5px;
@@ -127,4 +126,7 @@ form{
     & h1{
         padding-top: 200px;
     }
+}
+.items a{
+    text-decoration: none;
 }
