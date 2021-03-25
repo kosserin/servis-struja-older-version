@@ -163,7 +163,7 @@ body{
     opacity: 1;
     left: 50px;
     @include tablet{
-        left: 10px;
+        left: 25px;
     }
     & a{
         display: inline-block;
@@ -180,8 +180,9 @@ body{
             font-size: 0.9rem;
             padding: 1.3rem 1.3rem;
         }
-        @include fold{
+        @include phone{
             font-size: 0.8rem;
+            padding: 1rem 3rem;
         }
     }
 }
@@ -312,6 +313,7 @@ button#next,button#prev{
     @include phone{
         grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
         width: 90%;
+        padding: 20px 0 100px 0;
     }
     & .image-container{
         height: 400px;
@@ -322,6 +324,7 @@ button#next,button#prev{
         border-radius: 50px;
         @include phone{
             height: 350px;
+            margin-bottom: 20px;
         }
     }
     & .text-container{
@@ -530,8 +533,8 @@ button#next,button#prev{
         text-align: center;
         @include mini{
             width: 90%;
-            min-width: fit-content;
             flex-direction: column;
+            width: 100%;
         }
     }
     & img{
@@ -598,10 +601,13 @@ button#next,button#prev{
         position: relative;
         margin-bottom: 30px;
         text-align: center;
+        @include phone{
+            line-height: 55px;
+        }
         &::before{
             position: absolute;
             content: '';
-            bottom: 0px;
+            bottom: -5px;
             width: 60px;
             height: 5px;
             right: 48%;

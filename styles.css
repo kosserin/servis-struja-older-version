@@ -730,7 +730,7 @@ body {
 
 @media screen and (max-width: 768px) {
   .slide.current .content {
-    left: 10px;
+    left: 25px;
   }
 }
 
@@ -755,9 +755,10 @@ body {
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 600px) {
   .slide.current .content a {
     font-size: 0.8rem;
+    padding: 1rem 3rem;
   }
 }
 
@@ -886,8 +887,8 @@ button#next:hover, button#prev:hover {
 }
 
 .from-down {
-  -webkit-transform: translateY(30%);
-          transform: translateY(30%);
+  -webkit-transform: translateY(5%);
+          transform: translateY(5%);
 }
 
 .from-down.appear {
@@ -947,6 +948,7 @@ button#next:hover, button#prev:hover {
     -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     width: 90%;
+    padding: 20px 0 100px 0;
   }
 }
 
@@ -962,6 +964,7 @@ button#next:hover, button#prev:hover {
 @media screen and (max-width: 600px) {
   .third-container .image-container {
     height: 350px;
+    margin-bottom: 20px;
   }
 }
 
@@ -1251,13 +1254,11 @@ button#next:hover, button#prev:hover {
 @media screen and (max-width: 970px) {
   #sixth .info-holder {
     width: 90%;
-    min-width: -webkit-fit-content;
-    min-width: -moz-fit-content;
-    min-width: fit-content;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    width: 100%;
   }
 }
 
@@ -1359,10 +1360,16 @@ button#next:hover, button#prev:hover {
   text-align: center;
 }
 
+@media screen and (max-width: 600px) {
+  #seventh h1 {
+    line-height: 55px;
+  }
+}
+
 #seventh h1::before {
   position: absolute;
   content: '';
-  bottom: 0px;
+  bottom: -5px;
   width: 60px;
   height: 5px;
   right: 48%;
