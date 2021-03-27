@@ -4,11 +4,8 @@
 .background{
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(to left,rgba($blue,1),rgba($blue,0.7),rgba($blue,0.8),rgba($blue,0.9),rgba($blue,0.98),rgba($blue,1)), url('./pozadina.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 100% 10%;
-    @include tablet{
+    background: linear-gradient(to left,rgba($blue,1),rgba($blue,.9),rgba($blue,0.85),rgba($blue,1),rgba($blue,1),rgba($blue,1)), url('./pozadina.jpg');
+    @include mini{
         background: linear-gradient(to left,rgba($blue,1),rgba($blue,.6),rgba($blue,.9)), url('./pozadina.jpg');
         background-size: cover;
         background-position: center;
